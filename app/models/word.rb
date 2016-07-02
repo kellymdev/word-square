@@ -4,4 +4,6 @@ class Word < ActiveRecord::Base
   validates :value,
     presence: true,
     length: { in: 4..9 }
+
+  scope :target_word, -> { where "length(value) == 9" }
 end
