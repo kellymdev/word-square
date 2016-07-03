@@ -1,0 +1,17 @@
+.square {
+  width: 200px;
+
+  .letter {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .target {
+    background-color: yellow;
+  }
+}

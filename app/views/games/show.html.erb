@@ -1,5 +1,7 @@
 <h1>Game <%= @game.id %></h1>
 
-<% @game.word.value.chars.each do |letter| %>
-  <div class="letter"><%= letter %></div>
-<% end %>
+<div class="square">
+  <% @game.word.value.chars.each do |letter| %>
+    <div class="letter <%="target" if letter == @game.target_letter%>"><%= letter %></div>
+  <% end %>
+</div>
