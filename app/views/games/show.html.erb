@@ -1,1 +1,5 @@
 <h1>Game <%= @game.id %></h1>
+
+<% @game.word.value.chars.each do |letter| %>
+  <div class="letter"><%= letter %></div>
+<% end %>
