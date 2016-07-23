@@ -12,14 +12,13 @@ RSpec.describe GamesController, type: :controller do
   end
 
   describe '#create' do
+    subject(:create_call) { post :create }
+
     it 'creates a new game' do
-      expect { post :create }.to change { Game.count }.by 1
+      expect { create_call }.to change { Game.count }.by 1
     end
 
-    it 'redirects to the newly created game' do
-      post :create
-      expect(response).to redirect_to Game.last
-    end
+    it { is_expected.to redirect_to Game.last }
   end
 
   describe '#show' do
