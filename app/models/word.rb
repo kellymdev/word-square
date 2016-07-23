@@ -5,5 +5,5 @@ class Word < ActiveRecord::Base
     presence: true,
     length: { in: 4..9 }
 
-  scope :target_word, -> { where "length(value) = 9" }
+  scope :target_word, -> { where 'length(value) = 9' }
 end

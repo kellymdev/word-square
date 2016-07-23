@@ -5,3 +5,7 @@
     <div class="letter <%="target" if letter == @game.target_letter%>"><%= letter %></div>
   <% end %>
 </div>
+
+<div class="turn-form">
+  <%= render partial: 'turns/new' %>
+</div>

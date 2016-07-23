@@ -10,5 +10,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @turn = Turn.new
   end
 end

@@ -18,6 +18,6 @@ class CreateGame
   end
 
   def random_word
-    Word.target_word.order("random()").first
+    Word.target_word.order('random()').first
   end
 end

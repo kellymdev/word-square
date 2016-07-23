@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Word, type: :model do
   subject(:word) { Word.new(value: value) }
-  let(:value) { "abcd" }
+  let(:value) { 'abcd' }
 
   describe 'validations' do
     context 'without a value' do
