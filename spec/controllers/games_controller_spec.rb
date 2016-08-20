@@ -24,7 +24,7 @@ RSpec.describe GamesController, type: :controller do
   describe '#show' do
     let(:game) { CreateGame.new.call }
 
-    subject { get :show, id: game }
+    subject { get :show, params: { id: game } }
 
     it { is_expected.to render_template :show }
   end

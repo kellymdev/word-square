@@ -6,7 +6,7 @@ RSpec.describe TurnsController, type: :controller do
 
   describe '#create' do
     it "creates a new turn" do
-      expect { post :create, game_id: game, turn: { guess: 'jazziness' } }.to change { Turn.count }.by 1
+      expect { post :create, params: { game_id: game, turn: { guess: 'jazziness' } } }.to change { Turn.count }.by 1
     end
   end
 end
