@@ -30,5 +30,15 @@ RSpec.describe ValidateTurn do
 
       it { is_expected.to eq false }
     end
+
+    context 'when the word has already been guessed' do
+      let(:word) { 'jazz' }
+
+      before do
+        game.turns.create(guess: 'jazz')
+      end
+
+      it { is_expected.to eq false }
+    end
   end
 end
