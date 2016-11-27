@@ -31,6 +31,16 @@ RSpec.describe ValidateTurn do
       it { is_expected.to eq false }
     end
 
+    context "when the word doesn't contain the correct letters" do
+      let(:word) { 'name' }
+
+      before do
+        Word.create!(value: 'name')
+      end
+
+      it { is_expected.to eq false }
+    end
+
     context 'when the word has already been guessed' do
       let(:word) { 'jazz' }
 

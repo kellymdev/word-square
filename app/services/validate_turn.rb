@@ -5,7 +5,7 @@ class ValidateTurn
   end
 
   def call
-    contains_target_letter? && valid_word? && !duplicate_word?
+    contains_target_letter? && valid_word? && contains_correct_letters? && !duplicate_word?
   end
 
   private
@@ -16,6 +16,10 @@ class ValidateTurn
 
   def duplicate_word?
     @game.turns.pluck(:guess).include?(@word)
+  end
+
+  def contains_correct_letters?
+    (@word.chars - @game.word.value.chars).empty?
   end
 
   def contains_target_letter?
