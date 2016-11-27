@@ -3,7 +3,7 @@ class TurnsController < ApplicationController
 
   def create
     if ValidateTurn.new(@game, turn_params[:guess]).call
-      @turn = Turn.create!(turn_params)
+      @turn = @game.turns.create!(turn_params)
     end
 
     redirect_to @game

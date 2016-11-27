@@ -9,3 +9,11 @@
 <div class="turn-form">
   <%= render partial: 'turns/new' %>
 </div>
+
+<div class="guesses">
+  <ul>
+    <% @game.turns.each do |turn| %>
+      <li><%= turn.guess %></li>
+    <% end %>
+  </ul>
+</div>
