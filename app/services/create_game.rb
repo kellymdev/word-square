@@ -1,20 +1,29 @@
 class CreateGame
+  def initialize
+    @game = Game.create!
+  end
+
   def call
-    game = Game.create!
-    assign_random_word_for(game)
-    assign_target_letter_for(game)
-    game.save!
-    game
+    assign_random_word
+    letters = shuffle_letters
+    assign_target_letter(letters)
+    @game.save!
+    @game
   end
 
   private
 
-  def assign_random_word_for(game)
-    game.word = random_word
+  def assign_random_word
+    @game.word = random_word
   end
 
-  def assign_target_letter_for(game)
-    game.target_letter = game.word.value.chars.sample
+  def assign_target_letter(letters)
+    @game.target_letter = letters.pop
+    @game.letters = letters.join
+  end
+
+  def shuffle_letters
+    @game.word.value.chars.shuffle
   end
 
   def random_word

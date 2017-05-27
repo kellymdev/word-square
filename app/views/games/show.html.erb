@@ -1,8 +1,20 @@
 <h1>Game <%= @game.id %></h1>
 
 <div class="square">
-  <% @game.word.value.chars.each do |letter| %>
-    <div class="letter <%="target" if letter == @game.target_letter%>"><%= letter %></div>
+  <% @game.letters.chars[0..3].each do |letter| %>
+    <div class="letter">
+      <%= letter %>
+    </div>
+  <% end %>
+
+  <div class="letter target">
+    <%= @game.target_letter %>
+  </div>
+
+  <% @game.letters.chars[4..8].each do |letter| %>
+    <div class="letter">
+      <%= letter %>
+    </div>
   <% end %>
 </div>
 
