@@ -1,21 +1,7 @@
 <h1>Game <%= @game.id %></h1>
 
 <div class="square">
-  <% @game.letters.chars[0..3].each do |letter| %>
-    <div class="letter">
-      <%= letter %>
-    </div>
-  <% end %>
-
-  <div class="letter target">
-    <%= @game.target_letter %>
-  </div>
-
-  <% @game.letters.chars[4..8].each do |letter| %>
-    <div class="letter">
-      <%= letter %>
-    </div>
-  <% end %>
+  <%= render partial: 'letter', collection: @game.letters.chars[0..3], locals: { target: false } %><%= render partial: 'letter', collection: [@game.target_letter], locals: { target: true } %><%= render partial: 'letter', collection: @game.letters.chars[4..8], locals: { target: false } %>
 </div>
 
 <div class="turn-form">
