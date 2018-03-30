@@ -9,4 +9,8 @@ class Word < ActiveRecord::Base
             length: { in: 4..9 }
 
   scope :target_word, -> { where 'length(value) = 9' }
+
+  scope :for_letter, ->(letter) { where('value like ?', "%#{letter}%") }
+
+  scope :for_word, ->(word) { where('value ~* ?', "[#{word}]{4,}") }
 end
