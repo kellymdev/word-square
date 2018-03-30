@@ -34,5 +34,11 @@ RSpec.describe Word, type: :model do
 
       it { is_expected.not_to be_valid }
     end
+
+    context 'when the word already exists' do
+      let!(:existing_word) { Word.create!(value: value) }
+
+      it { is_expected.not_to be_valid }
+    end
   end
 end
