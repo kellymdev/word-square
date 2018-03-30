@@ -10,8 +10,6 @@
 
 <div class="guesses">
   <ul>
-    <% @game.turns.each do |turn| %>
-      <li><%= turn.guess %></li>
-    <% end %>
+    <%= render partial: 'turn', collection: @game.turns %>
   </ul>
 </div>
