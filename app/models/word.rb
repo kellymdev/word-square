@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Word < ActiveRecord::Base
   has_many :games
 

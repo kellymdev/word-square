@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGame
   def initialize
     @game = Game.create!

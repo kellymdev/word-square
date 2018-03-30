@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ValidateTurn
   def initialize(game, word)
     @game = game
