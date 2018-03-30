@@ -4,6 +4,8 @@ class TurnsController < ApplicationController
   def create
     if ValidateTurn.new(@game, turn_params[:guess]).call
       @turn = @game.turns.create!(turn_params)
+    else
+      flash[:error] = "The word '#{turn_params[:guess]}' is invalid"
     end
 
     redirect_to @game
