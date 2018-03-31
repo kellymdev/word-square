@@ -9,6 +9,7 @@ class CreateGame
     assign_random_word
     letters = shuffle_letters
     assign_target_letter(letters)
+    calculate_potential_words
     @game.save!
     @game
   end
@@ -30,5 +31,11 @@ class CreateGame
 
   def random_word
     Word.target_word.order('random()').first
+  end
+
+  def calculate_potential_words
+    count = CalculateWordCount.new(@game.word, @game.target_letter).call
+
+    @game.word_count = count
   end
 end

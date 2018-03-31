@@ -21,5 +21,10 @@ RSpec.describe CreateGame, type: :service do
       game_service
       expect(game.target_letter).to be_present
     end
+
+    it 'calculates the potential word count' do
+      game_service
+      expect(game.word_count).to be_present
+    end
   end
 end

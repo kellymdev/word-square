@@ -8,6 +8,10 @@
   <%= render partial: 'turns/new' %>
 </div>
 
+<div class="word-count">
+  You have guessed <%= @game.turns.count %> out of <%= @game.word_count %> potential words.
+</div>
+
 <div class="guesses">
   <ul>
     <%= render partial: 'turn', collection: @game.turns %>

@@ -12,5 +12,5 @@ class Word < ActiveRecord::Base
 
   scope :for_letter, ->(letter) { where('value like ?', "%#{letter}%") }
 
-  scope :for_word, ->(word) { where('value ~* ?', "[#{word}]{4,}") }
+  scope :for_word, ->(word) { where('value ~* ?', "^[#{word}]{4,}$") }
 end
